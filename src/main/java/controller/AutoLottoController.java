@@ -2,6 +2,8 @@ package controller;
 
 import domain.AutoLotto;
 import domain.LottoTicket;
+import domain.WinningNumber;
+import domain.WinningResult;
 import view.InputView;
 import view.Resultview;
 
@@ -16,6 +18,12 @@ public class AutoLottoController {
         List<LottoTicket> lottoTickets = new AutoLotto().getTicket(payment);
         Resultview.printPayment(lottoTickets);
 
+        WinningNumber winningNumber = InputView.drawing();
+        WinningResult winningResult = new WinningResult(winningNumber, lottoTickets);
+
+        for (Integer i : winningResult.winningCount) {
+            System.out.println(i);
+        }
 
     }
 }

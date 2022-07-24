@@ -19,6 +19,7 @@ public class LottoTicket {
         }
         Collections.shuffle(numList);
         lottoNumbers = numList.subList(0, 6);
+        Collections.sort(lottoNumbers);
     }
 
     @Override

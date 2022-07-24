@@ -2,6 +2,7 @@ package view;
 
 import domain.AutoLotto;
 import domain.LottoTicket;
+import domain.WinningNumber;
 
 import java.util.List;
 
@@ -13,5 +14,12 @@ public class Resultview {
         for (LottoTicket lottoTicket : lottoTickets) {
             System.out.println(lottoTicket.toString());
         }
+    }
+
+    public static void printResult(List<LottoTicket> lottoTickets, WinningNumber winningNumber) {
+
+        System.out.println("당첨 통계");
+        System.out.println("--------");
+
     }
 }
