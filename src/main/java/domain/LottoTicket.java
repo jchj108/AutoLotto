@@ -9,21 +9,15 @@ public class LottoTicket {
      */
 
     private static final int LOTTO_NUMBERS_SIZE = 6;
-
-    public List<LottoNumber> lottoNumbers;
-    public final List<Integer> numList = new ArrayList<>();
+    public List<LottoNumbers> lottoNumbers;
+    public final List<LottoNumbers> numList = new ArrayList<>();
 
     public LottoTicket() {
         for (int i = 1; i <= 45; i++) {
-            numList.add(i);
+            numList.add(new LottoNumbers(i));
         }
         Collections.shuffle(numList);
         lottoNumbers = numList.subList(0, 6);
         Collections.sort(lottoNumbers);
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(lottoNumbers);
     }
 }
