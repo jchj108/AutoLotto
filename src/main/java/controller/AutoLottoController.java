@@ -21,9 +21,5 @@ public class AutoLottoController {
         WinningNumber winningNumber = InputView.drawing();
         WinningResult winningResult = new WinningResult(winningNumber, lottoTickets);
 
-        for (Integer i : winningResult.winningCount) {
-            System.out.println(i);
-        }
-
     }
 }

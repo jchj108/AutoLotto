@@ -13,10 +13,14 @@ public class AutoLotto {
         if (payment < cost) {
             throw new IllegalArgumentException("금액이 부족합니다.");
         }
+        // while 대신 cost로 나눠서 티켓팅하기
+        // while 가독성 문제
         while (payment >= cost) {
             payment -= cost;
             this.list.add(new LottoTicket());
         }
         return this.list;
     }
+
+
 }

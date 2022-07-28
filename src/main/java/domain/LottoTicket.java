@@ -10,7 +10,7 @@ public class LottoTicket {
 
     private static final int LOTTO_NUMBERS_SIZE = 6;
 
-    public List<Integer> lottoNumbers;
+    public List<LottoNumber> lottoNumbers;
     public final List<Integer> numList = new ArrayList<>();
 
     public LottoTicket() {
