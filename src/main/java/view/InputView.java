@@ -1,8 +1,9 @@
 package view;
 
 import domain.AutoLotto;
-import domain.Constant;
+import domain.LottoPolicy;
 import domain.LottoNumbers;
+import domain.LottoPolicy;
 import domain.WinningNumber;
 import exception.LackCostException;
 
@@ -15,9 +16,16 @@ public class InputView {
 
     private static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-    public static int payment() throws IOException {
+    private static final String LOTTO_NUMBERS_SIZE_EXCEPTION_MSG = "6개의 숫자를 입력하세요.";
+
+    public static long payment() throws IOException {
         System.out.println("구입 금액을 입력해주세요.");
-        int cost = Integer.parseInt(br.readLine());
+        long cost = 0;
+        try {
+            cost = Integer.parseInt(br.readLine());
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자만 입력하세요.");
+        }
         return cost;
     }
 
@@ -27,14 +35,14 @@ public class InputView {
         StringTokenizer st = new StringTokenizer(s, ", ");
         List<LottoNumbers> list = new ArrayList<>();
 
-        int[] arr = new int[Constant.LOTTO_NUMBER_SIZE];
-
-        for (int i = 0; i < Constant.LOTTO_NUMBER_SIZE; i++) {
+        if (st.countTokens() != LottoPolicy.LOTTO_NUMBERS_SIZE) {
+            throw new IllegalArgumentException(LOTTO_NUMBERS_SIZE_EXCEPTION_MSG);
+        }
+        int[] arr = new int[LottoPolicy.LOTTO_NUMBERS_SIZE];
+        for (int i = 0; i < LottoPolicy.LOTTO_NUMBERS_SIZE; i++) {
             list.add(new LottoNumbers(Integer.parseInt(st.nextToken())));
         }
-
         WinningNumber winningNumber = new WinningNumber(list);
-
         return new WinningNumber(list);
     }
 }

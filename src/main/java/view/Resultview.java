@@ -14,18 +14,15 @@ public class Resultview {
         }
     }
 
-    public static void printResult(List<LottoTicket> lottoTickets, WinningNumber winningNumber) {
-
+    public static void printResult(WinningNumber winningNumber, LottoStatistics lottoStatistics) {
         System.out.println(winningNumber.winningNumbers);
         System.out.println("당첨 통계");
         System.out.println("--------");
+        System.out.println("3개 일치 (" + LottoRank.FOURTH.prize + "원) - " + lottoStatistics.lottoWinStatistics.get(3));
+        System.out.println("4개 일치 (" + LottoRank.THIRD.prize + "원) - " + lottoStatistics.lottoWinStatistics.get(4));
+        System.out.println("5개 일치 (" + LottoRank.SECOND.prize + "원) - " + lottoStatistics.lottoWinStatistics.get(5));
+        System.out.println("6개 일치 (" + LottoRank.FIRST.prize + "원) - " + lottoStatistics.lottoWinStatistics.get(6));
+        System.out.println("총 수익률은 " + lottoStatistics.yield + " 입니다." + lottoStatistics.benefit);
 
-        WinningResult winningResult = new WinningResult(lottoTickets, winningNumber);
-        System.out.println("3개 일치 : " + winningResult.fourthPrize);
-        System.out.println("4개 일치 : " + winningResult.thirdPrize);
-        System.out.println("5개 일치 : " + winningResult.twicePrize);
-        System.out.println("6개 일치 : " + winningResult.firstPrize);
-
-        System.out.println("총 수익률은 " + CalcBenefit.benefit + "입니다.");
     }
 }
