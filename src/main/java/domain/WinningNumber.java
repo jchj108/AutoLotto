@@ -5,11 +5,15 @@ import java.util.List;
 
 public class WinningNumber {
 
-    public List<Integer> winningNumbers = new ArrayList<>();
+    public static String LOTTO_SIZE_EXCEPTION = "6개의 숫자를 입력해주세요.";
 
-    public WinningNumber(List<Integer> winningNumbers) {
-        for (int i = 0; i < winningNumbers.size(); i++) {
-            this.winningNumbers.add(winningNumbers.get(i));
+    public List<LottoNumbers> winningNumbers = new ArrayList<>();
+
+    public WinningNumber(List<LottoNumbers> winningNumbers) {
+
+        if(winningNumbers.size() != Constant.LOTTO_NUMBER_SIZE) {
+            throw new IllegalArgumentException(LOTTO_SIZE_EXCEPTION);
         }
+        this.winningNumbers = winningNumbers;
     }
 }
