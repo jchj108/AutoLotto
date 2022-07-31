@@ -9,14 +9,13 @@ import java.util.List;
 public class AutoLotto {
 
     private final List<LottoTicket> list = new ArrayList<LottoTicket>();
-    public static final long COST = 1000;
-    private static final String LACK_COST_EXCEPTION_MSG = "금액은 " + COST + " 이상 입력해주세요.";
+    private static final String LACK_COST_EXCEPTION_MSG = "금액은 " + LottoPolicy.COST + " 이상 입력해주세요.";
 
     public List<LottoTicket> getTicket(long payment) {
-         if (payment < 1000) {
+         if (payment < LottoPolicy.COST) {
              throw new LackCostException(LACK_COST_EXCEPTION_MSG);
         }
-        long cnt = payment / COST;
+        long cnt = payment / LottoPolicy.COST;
         for (int i = 0; i < cnt; i++) {
             this.list.add(new LottoTicket());
         }
