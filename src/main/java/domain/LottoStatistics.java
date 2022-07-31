@@ -19,7 +19,6 @@ public class LottoStatistics {
 
     private void calcYield() {
         this.yield = this.sumPrize / this.sumCost;
-
         if (this.yield > 1) {
             benefit = "기준이 1이기 때문에 결과적으로 이득이라는 의미임";
         } else {
@@ -30,31 +29,14 @@ public class LottoStatistics {
     private void setLottoWinStatistics(WinningResult winningResult) {
         for (LottoRank lottoRank : winningResult.winningCount) {
             this.sumCost += LottoPolicy.COST;
-            switch (lottoRank.countOfMatch) {
-                case 3 :
-                    lottoWinStatistics.put(3, lottoWinStatistics.get(3) + 1);
-                    this.sumPrize += LottoRank.FOURTH.prize;
-                    break;
-                case 4 :
-                    lottoWinStatistics.put(4, lottoWinStatistics.get(4) + 1);
-                    this.sumPrize += LottoRank.THIRD.prize;
-                    break;
-                case 5 :
-                    lottoWinStatistics.put(5, lottoWinStatistics.get(5) + 1);
-                    this.sumPrize += LottoRank.SECOND.prize;
-                    break;
-                case 6 :
-                    lottoWinStatistics.put(6, lottoWinStatistics.get(6) + 1);
-                    this.sumPrize += LottoRank.FIRST.prize;
-                    break;
-            }
+            this.sumPrize += lottoRank.prize;
+            lottoWinStatistics.put(lottoRank.countOfMatch, lottoWinStatistics.get(lottoRank.countOfMatch) + 1);
         }
     }
 
     private void init() {
-        this.lottoWinStatistics.put(3, 0);
-        this.lottoWinStatistics.put(4, 0);
-        this.lottoWinStatistics.put(5, 0);
-        this.lottoWinStatistics.put(6, 0);
+        for (int i = 0; i <= LottoPolicy.LOTTO_NUMBERS_SIZE; i++) {
+            this.lottoWinStatistics.put(i, 0);
+        }
     }
 }
