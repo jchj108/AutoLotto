@@ -9,7 +9,7 @@ public class WinningResult {
     public WinningResult(List<LottoTicket> lottoTickets, WinningNumber winningNumber) {
         for (LottoTicket lottoTicket : lottoTickets) {
             int cnt = 0;
-            for (LottoNumbers number : winningNumber.winningNumbers) {
+            for (LottoNumber number : winningNumber.winningNumbers) {
                 if (lottoTicket.lottoNumbers.contains(number)) {
                     cnt++;
                 }
