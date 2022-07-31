@@ -10,7 +10,7 @@ public class WinningResult {
         for (LottoTicket lottoTicket : lottoTickets) {
             int cnt = 0;
             for (LottoNumber number : winningNumber.winningNumbers) {
-                if (lottoTicket.lottoNumbers.contains(number)) {
+                if (lottoTicket.autoLottoNumbers.contains(number)) {
                     cnt++;
                 }
             }

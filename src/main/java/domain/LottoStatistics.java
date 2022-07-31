@@ -11,6 +11,7 @@ public class LottoStatistics {
     private double sumCost;
     private double sumPrize;
     public String benefit;
+    public static final int BASE_RATE = 1;
     public LottoStatistics(WinningResult winningResult) {
         init();
         setLottoWinStatistics(winningResult);
@@ -19,10 +20,10 @@ public class LottoStatistics {
 
     private void calcYield() {
         this.yield = this.sumPrize / this.sumCost;
-        if (this.yield > 1) {
-            benefit = "기준이 1이기 때문에 결과적으로 이득이라는 의미임";
+        if (this.yield > BASE_RATE) {
+            benefit = "기준이 " + BASE_RATE + "이기 때문에 결과적으로 이득이라는 의미임";
         } else {
-            benefit = "기준이 1이기 때문에 결과적으로 손해라는 의미임";
+            benefit = "기준이 " + BASE_RATE + "이기 때문에 결과적으로 손해라는 의미임";
         }
     }
 

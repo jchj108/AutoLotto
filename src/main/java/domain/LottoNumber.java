@@ -39,6 +39,6 @@ public class LottoNumber implements Comparable<LottoNumber> {
         if (o instanceof LottoNumber) {
             return this.number == ((LottoNumber) o).number;
         }
-        return false;
+        return super.equals(o);
     }
 }

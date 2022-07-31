@@ -8,7 +8,7 @@ import java.util.List;
 
 public class AutoLotto {
 
-    private final List<LottoTicket> list = new ArrayList<LottoTicket>();
+    private List<LottoTicket> list = new ArrayList<LottoTicket>();
     private static final String LACK_COST_EXCEPTION_MSG = "금액은 " + LottoPolicy.COST + " 이상 입력해주세요.";
 
     public List<LottoTicket> getTicket(long payment) {
